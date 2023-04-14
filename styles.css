@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Spielvergleich</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</head>
+<body>
+	<h1>Spielvergleich</h1>
+	<div id="game-container">
+		<img id="game-1" src="game1.png" alt="Spiel 1">
+		<img id="game-2" src="game2.png" alt="Spiel 2">
+	</div>
+	<div id="button-container">
+		<button id="left-btn" onclick="selectGame('left')">Links</button>
+		<button id="right-btn" onclick="selectGame('right')">Rechts</button>
+	</div>
+</body>
+</html>
+In diesem Beispiel gibt es ein h1-Element für den Titel der Website, ein div-Element mit der id game-container für die Anzeige der beiden zufälligen Spiele und ein div-Element mit der id button-container für die beiden Schaltflächen zum Auswählen des besseren Spiels.
+
+Im CSS-Code können dann das Aussehen der Website und der einzelnen Elemente definiert werden. Hier ist ein Beispiel:
+
+css
+Copy code
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+}
+
+#game-container {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0;
+}
+
+#game-container img {
+	max-width: 45%;
+	height: auto;
+}
+
+#button-container {
+	display: flex;
+	justify-content: center;
+}
+
+button {
+	font-size: 20px;
+	padding: 10px 20px;
+	margin: 0 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #4CAF50;
+	color: #fff;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #3e8e41;
+}
