@@ -1,13 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Janis ist...</title>
+	<meta charset="UTF-8">
+	<title>Spielvergleich</title>
+	<link rel="stylesheet" href="style.css">
+	<script>
+		
+HTML Website for Comparing Games
+
+
+Dercoole42
+programmiere eine website in html auf der man immer zwei zufällige computerspiele sieht und entscheiden muss welches das bessere ist. sie website soll auch auf dem handy funktionieren
+
+Als Sprache für die Programmierung der Website empfehle ich HTML, CSS und JavaScript.
+
+Zunächst solltest du die grundlegende Struktur der Website mit HTML definieren. Hier ist ein Beispiel für den HTML-Code:
+
+php
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Spielvergleich</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
 </head>
 <body>
-<h1>Janis ist...</h1>
-<button id="dumm-button" onclick="document.getElementById('ergebnis').innerHTML = 'richtig'">dumm</button>
-<button id="schlecht-in-mathe-button" onclick="document.getElementById('ergebnis').innerHTML = 'richtig'">schlecht in Mathe</button>
-<button id="netter-junge-button" onclick="document.getElementById('ergebnis').innerHTML = 'falsch'">ein netter Junge</button>
-<div id="ergebnis"></div>
+	<h1>Spielvergleich</h1>
+	<div id="game-container">
+		<img id="game-1" src="game1.png" alt="Spiel 1">
+		<img id="game-2" src="game2.png" alt="Spiel 2">
+	</div>
+	<div id="button-container">
+		<button id="left-btn" onclick="selectGame('left')">Links</button>
+		<button id="right-btn" onclick="selectGame('right')">Rechts</button>
+	</div>
 </body>
+</html>
+In diesem Beispiel gibt es ein h1-Element für den Titel der Website, ein div-Element mit der id game-container für die Anzeige der beiden zufälligen Spiele und ein div-Element mit der id button-container für die beiden Schaltflächen zum Auswählen des besseren Spiels.
+
+Im CSS-Code können dann das Aussehen der Website und der einzelnen Elemente definiert werden. Hier ist ein Beispiel:
+
+css
+Copy code
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+}
+
+#game-container {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0;
+}
+
+#game-container img {
+	max-width: 45%;
+	height: auto;
+}
+
+#button-container {
+	display: flex;
+	justify-content: center;
+}
+
+button {
+	font-size: 20px;
+	padding: 10px 20px;
+	margin: 0 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #4CAF50;
+	color: #fff;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #3e8e41;
+}
+Schließlich kann die Funktionalität der Website mit JavaScript implementiert werden. Hier ist ein Beispiel:
+
+scss
+Copy code
+const games = [	{ name: "Spiel 1", image: "game1.png" },	{ name: "Spiel 2", image: "game2.png" },	{ name: "Spiel 3", image: "game3.png" },	{ name: "Spiel 4", image: "game4.png" },	{ name: "Spiel 5", image: "game5.png" }];
+
+let game1Index, game2Index;
+
+function selectRandomGames() {
+	game1Index = Math.floor(Math.random() * games.length);
+	do {
+		game2Index = Math.floor(Math.random() * games.length);
+	} while (game2Index === game1Index);
+	
+	document.getElementById("game-1").src = games[game1Index].image;
+	document.getElementById("game-2").src = games[game2Index].image;
+}
+
+function selectGame(selected) {
+	if (selected === "left") {
+		alert("Das bessere Spiel ist " + games[game1Index].name);
+	} else {
+		alert("Das bessere Spiel ist " + games[game2Index].name);
+	}
+	selectRandomGames();
+}
+
+selectRandomGames();
+	</script>
+</head>
+</head>
+<body>
+	<h1>Spielvergleich</h1>
+	<div id="game-container">
+		<img id="game-1" src="game1.png" alt="Spiel 1">
+		<img id="game-2" src="game2.png" alt="Spiel 2">
+	</div>
+	<div id="button-container">
+		<button id="left-btn" onclick="selectGame('left')">Links</button>
+		<button id="right-btn" onclick="selectGame('right')">Rechts</button>
+	</div>
+</body>
+
 </html>
